@@ -1,0 +1,10 @@
+/* Shared: frame PNGs scale to ~90% of the viewable area (width and height caps). */
+.figure {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90dvh;
+  object-fit: contain;
+  object-position: center center;
+}

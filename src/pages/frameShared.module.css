@@ -1,0 +1,59 @@
+/* Shared full-viewport frame layout (Frame 0–2): image ~90% viewport, optional Next hit area. */
+
+.viewport {
+  position: relative;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.stage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.5rem, env(safe-area-inset-top, 0px)) 5vw
+    max(0.5rem, env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
+}
+
+.frameWrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 90vw;
+  max-height: 90dvh;
+  --next-bottom: 5.75%;
+  --next-width: 31%;
+  --next-height: 7.25%;
+  --next-radius: clamp(10px, 1.8vw, 18px);
+}
+
+.nextHit {
+  position: absolute;
+  left: 50%;
+  bottom: var(--next-bottom);
+  transform: translateX(-50%);
+  width: var(--next-width);
+  height: var(--next-height);
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--next-radius);
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nextHit:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 3px;
+}
+
+.nextHit:active {
+  transform: translateX(-50%) scale(0.98);
+}

@@ -1,0 +1,42 @@
+/* Circular back control — position:absolute inside .frameWrap (top-left of displayed image). */
+
+.back {
+  position: absolute;
+  top: clamp(0.35rem, 1.25%, 0.85rem);
+  left: clamp(0.35rem, 1.25%, 0.85rem);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.back:hover {
+  background: #f3f3f3;
+}
+
+.back:active {
+  transform: scale(0.96);
+}
+
+.back:focus-visible {
+  outline: 3px solid #00aeef;
+  outline-offset: 2px;
+}
+
+.chevron {
+  width: 22px;
+  height: 22px;
+  margin-left: -2px;
+}

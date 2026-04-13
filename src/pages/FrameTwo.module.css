@@ -1,0 +1,30 @@
+/* Frame 2 — dynamic greeting over the art (tune position vs your Frame 2.png). */
+
+.frameTwoWrap {
+  /* ~two thirds down the frame (center of greeting aligns to this line) */
+  --greet-top: 66.67%;
+  --greet-left: 8%;
+  --greet-right: 8%;
+}
+
+.greeting {
+  position: absolute;
+  z-index: 2;
+  left: var(--greet-left);
+  right: var(--greet-right);
+  top: var(--greet-top);
+  transform: translateY(-50%);
+  margin: 0;
+  padding: clamp(0.65rem, 2.5vw, 1.1rem) clamp(1rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: clamp(8px, 1.5vw, 14px);
+  font-family: var(--font-sans, system-ui, "Segoe UI", sans-serif);
+  font-size: clamp(0.85rem, 2.8vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  color: #1e1e1e;
+  pointer-events: none;
+  text-wrap: balance;
+}

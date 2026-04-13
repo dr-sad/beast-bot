@@ -17,13 +17,17 @@ Use **Inspect** on frame `7754:6621` and update [`src/design-tokens.css`](src/de
 - Frame height / max width (see `--frame-first-page-min-height`, `--content-max-width`).
 - Text styles → `--font-size-*`, `--font-weight-*`, `--line-height-*`.
 - Colors → `--color-*`.
-- Export icons and raster assets from Figma into [`public/figma-exports/`](public/figma-exports/), then reference them in [`src/pages/Home.tsx`](src/pages/Home.tsx) (e.g. `<img src={`${import.meta.env.BASE_URL}figma-exports/hero.png`} />`). A reference PNG export for this frame is included as [`public/figma-exports/frame-7754-6621-reference.png`](public/figma-exports/frame-7754-6621-reference.png) for side-by-side comparison while styling.
+- Export icons and raster assets from Figma into [`public/figma-exports/`](public/figma-exports/), then reference them in [`src/pages/Home.tsx`](src/pages/Home.tsx) (e.g. `<img src={`${import.meta.env.BASE_URL}figma-exports/${encodeURIComponent('Frame 1.png')}`} />`). A reference PNG export for this frame is included as [`public/figma-exports/Frame 1.png`](public/figma-exports/Frame%201.png) for side-by-side comparison while styling.
 
 ### Prototype → routes
 
-Hotspots on the first frame are wired in [`src/pages/Home.tsx`](src/pages/Home.tsx). Each button uses `navigate()` to a route; destinations that are not built yet go to `/coming-soon` with optional state. As you add screens, add `<Route>` entries in [`src/App.tsx`](src/App.tsx) and point buttons to those paths.
+- **`/`** ([`Home.tsx`](src/pages/Home.tsx)) — [`Frame 0.png`](public/figma-exports/Frame%200.png); transparent **Next** hit target over the art (tune `--next-*` on `.frameWrap` in [`frameShared.module.css`](src/pages/frameShared.module.css)).
+- **`/frame-1`** ([`FrameOne.tsx`](src/pages/FrameOne.tsx)) — [`Frame 1.png`](public/figma-exports/Frame%201.png) with working **dropdowns** (labels + options in [`nicknameState.ts`](src/nicknameState.ts)); **Back** → `/`, **Next** → `/frame-2` with `{ adjective, animal, nickSuffix }` in router state.
+- **`/frame-2`** ([`FrameTwo.tsx`](src/pages/FrameTwo.tsx)) — [`Frame 2.png`](public/figma-exports/Frame%202.png) with an overlaid greeting **`Hi {adjective}{animal}{2-digit}!`**; **Back** → `/frame-1`. Tune overlay position in [`FrameTwo.module.css`](src/pages/FrameTwo.module.css) and dropdown placement in [`FrameOne.module.css`](src/pages/FrameOne.module.css).
 
-**HashRouter** is used so deep links work on **GitHub Pages** without server rewrites (`#/`, `#/coming-soon`).
+Asset URLs are centralized in [`src/figmaAssets.ts`](src/figmaAssets.ts).
+
+**HashRouter** is used so deep links work on **GitHub Pages** without server rewrites (`#/`, `#/frame-1`, `#/frame-2`).
 
 ## Scripts
 
