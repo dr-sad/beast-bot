@@ -10,8 +10,8 @@ node_modules
 dist
 dist-ssr
 
-# Local scratch exports at repo root (keep tracked assets under public/figma-exports/)
-Frame *.png
+# Scratch PNGs at repo root only — do not ignore public/figma-exports/Frame *.png
+/Frame *.png
 *.local
 
 # Editor

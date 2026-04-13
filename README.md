@@ -17,7 +17,7 @@ Use **Inspect** on frame `7754:6621` and update [`src/design-tokens.css`](src/de
 - Frame height / max width (see `--frame-first-page-min-height`, `--content-max-width`).
 - Text styles → `--font-size-*`, `--font-weight-*`, `--line-height-*`.
 - Colors → `--color-*`.
-- Export icons and raster assets from Figma into [`public/figma-exports/`](public/figma-exports/), then reference them in [`src/pages/Home.tsx`](src/pages/Home.tsx) (e.g. `<img src={`${import.meta.env.BASE_URL}figma-exports/${encodeURIComponent('Frame 1.png')}`} />`). A reference PNG export for this frame is included as [`public/figma-exports/Frame 1.png`](public/figma-exports/Frame%201.png) for side-by-side comparison while styling.
+- Export icons and raster assets from Figma into [`public/figma-exports/`](public/figma-exports/). Screen art uses [`public/figma-exports/Frame 1.png`](public/figma-exports/Frame%201.png) (and Frame 0 / 2) via [`src/figmaAssets.ts`](src/figmaAssets.ts).
 
 ### Prototype → routes
 
