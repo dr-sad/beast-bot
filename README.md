@@ -46,7 +46,8 @@ npm run preview
 1. Push this repo to GitHub on branch `main`.
 2. **Settings → Pages → Build and deployment:** set source to **GitHub Actions** (not “Deploy from a branch”).
 3. The workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) runs `npm ci` / `npm run build` and deploys `./dist`. On the first run, approve the **github-pages** environment if GitHub prompts you under **Actions**.
-4. Screen assets live only as [`public/figma-exports/Frame 0.png`](public/figma-exports/Frame%200.png), [`Frame 1.png`](public/figma-exports/Frame%201.png), and [`Frame 2.png`](public/figma-exports/Frame%202.png) — there is no `frame-7754-6621-reference.png` in this repo (older commits may show that name as removed in diffs).
+4. **Where to see runs:** open the [**Actions** tab](https://github.com/dr-sad/beast-bot/actions) (not only the repo commit list). Each push to `main` should list a **Deploy to GitHub Pages** run; you can also use **Run workflow** on [the workflow page](https://github.com/dr-sad/beast-bot/actions/workflows/deploy-pages.yml) if needed.
+5. Screen assets live only as [`public/figma-exports/Frame 0.png`](public/figma-exports/Frame%200.png), [`Frame 1.png`](public/figma-exports/Frame%201.png), and [`Frame 2.png`](public/figma-exports/Frame%202.png) — there is no `frame-7754-6621-reference.png` in this repo (older commits may show that name as removed in diffs).
 
 [`vite.config.ts`](vite.config.ts) uses `base: './'` so asset paths resolve when the site is served from a project URL (e.g. `https://<user>.github.io/<repo>/`).
 
