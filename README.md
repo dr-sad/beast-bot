@@ -51,6 +51,18 @@ npm run preview
 
 [`vite.config.ts`](vite.config.ts) uses `base: './'` so asset paths resolve when the site is served from a project URL (e.g. `https://<user>.github.io/<repo>/`).
 
+### Troubleshooting: deploy fails with 404 / “Ensure GitHub Pages has been enabled”
+
+This means Pages is not turned on for the repo (or not using **GitHub Actions** as the source). Fix it in the GitHub UI (repo **Settings** require admin access):
+
+1. Open **[Pages settings](https://github.com/dr-sad/beast-bot/settings/pages)** for this repository.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch” and not “Disabled”).
+3. Save if prompted, then re-run the failed workflow: **Actions** → latest **Deploy to GitHub Pages** → **Re-run all jobs** (or push any commit to `main`).
+
+If GitHub asks to approve the **`github-pages`** environment** the first time, open the workflow run and approve it, or use **Settings → Environments → github-pages** and add protection rules as needed.
+
+The Node.js deprecation **warning** about `deploy-pages` is from GitHub’s runner; upgrading the action in the workflow over time reduces it. It does not cause the 404 by itself.
+
 ## Optional: Figma REST API
 
 With a personal access token you can `GET https://api.figma.com/v1/files/2IOY5O7uNAziQdqbKhyDwE` and inspect node `7754:6621` for structure and bounds. This does not replace visual QA against the canvas.
