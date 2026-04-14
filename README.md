@@ -38,7 +38,7 @@ npm run build
 npm run preview
 ```
 
-- **Dev:** [http://localhost:5173](http://localhost:5173)
+- **Dev:** [http://localhost:5173/beast-bot/](http://localhost:5173/beast-bot/) (path matches [`vite.config.ts`](vite.config.ts) `base` for parity with GitHub Pages)
 - **Production build:** output in `dist/`
 
 ## GitHub Pages
@@ -49,7 +49,7 @@ npm run preview
 4. **Where to see runs:** open the [**Actions** tab](https://github.com/dr-sad/beast-bot/actions) (not only the repo commit list). Each push to `main` should list a **Deploy to GitHub Pages** run; you can also use **Run workflow** on [the workflow page](https://github.com/dr-sad/beast-bot/actions/workflows/deploy-pages.yml) if needed.
 5. Screen assets live only as [`public/figma-exports/Frame 0.png`](public/figma-exports/Frame%200.png), [`Frame 1.png`](public/figma-exports/Frame%201.png), and [`Frame 2.png`](public/figma-exports/Frame%202.png) — there is no `frame-7754-6621-reference.png` in this repo (older commits may show that name as removed in diffs).
 
-[`vite.config.ts`](vite.config.ts) uses `base: './'` so asset paths resolve when the site is served from a project URL (e.g. `https://<user>.github.io/<repo>/`).
+[`vite.config.ts`](vite.config.ts) sets `base: '/beast-bot/'` so JS/CSS load correctly on **`https://dr-sad.github.io/beast-bot`** (with or without a trailing slash). If you rename the repo, update `base` to match.
 
 ### Troubleshooting: deploy fails with 404 / “Ensure GitHub Pages has been enabled”
 

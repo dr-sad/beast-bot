@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Use './' so assets resolve on GitHub Pages project sites without guessing the repo name.
-// For a user/org site at the domain root, set base: '/' in this file.
+// GitHub project page: must match repo name or assets 404 / blank page (especially without trailing slash).
+// Local dev: open http://localhost:5173/beast-bot/
 export default defineConfig({
   plugins: [react()],
-  base: "./",
+  base: "/beast-bot/",
 });
